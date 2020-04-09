@@ -6,7 +6,7 @@ import "./App.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cds: [] };
+    this.state = { cds: [{ title: "Test" }] };
   }
 
   // add a function to go to the server
@@ -26,6 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <p>{this.state.cds[0].artist}</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
