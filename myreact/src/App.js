@@ -4,6 +4,25 @@ import logo from "./logo.svg";
 import "./App.css";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { cds: [] };
+  }
+
+  // add a function to go to the server
+  // and get some stuff
+  async componentDidMount() {
+    axios
+      .get("http://localhost:8081/albums")
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ cds: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
       <div className="App">
